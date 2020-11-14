@@ -1,0 +1,3245 @@
+{
+	"info": {
+		"_postman_id": "34c5ce0c-fdc2-3781-9335-088bcdac539f",
+		"name": "Billing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Авторизация",
+			"item": [
+				{
+					"name": "Авторизация",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84f869b8-10fb-4347-bc1e-5898771736fb",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"admin\",\r\n    \"password\": 123\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Выход",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ad3978b-0d1d-4d85-96fe-2a507e0ca057",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Внешка",
+			"item": [
+				{
+					"name": "Тестовые запросы",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/external",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Пользователи",
+			"item": [
+				{
+					"name": "Информациия",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "77de6e38-ac51-475b-a75c-fa67418785b2",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/user/show",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "020d1f7e-ebc6-49d8-ab4a-19efa8253b46",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/administrators/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"administrators",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Регистрация нового администратора",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bef87ac0-7778-4293-b221-2ffd65e1695b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test1\",\r\n    \"fio\": \"test\",\r\n    \"email\": \"test@mailtest.ru\",\r\n    \"password\": 12\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/administrators/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"administrators",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение данных администратора",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4adb15f1-3169-41c5-a21e-726873eef389",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"fio\": \"test fio\",\r\n    \"email\": \"test@mailtest1.ru\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/administrators/7/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"administrators",
+								"7",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Интернет тарифы",
+			"item": [
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2ca4ed0a-5361-4c77-83b9-83f645d76a53",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/internet/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"internet",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новый тариф",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ea76334f-0ba9-4831-b1f1-6a4d08555dd4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Интренет 1\",\r\n    \"speed_rule_id\": 2\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/internet/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"internet",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить тариф",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1164af45-fe41-4180-9e2b-f00c63a26727",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Интренет 2\",\r\n    \"speed_rule_id\": 2\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/internet/69/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"internet",
+								"69",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить тариф",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f7261182-07d1-4fda-b41b-800cf4f430d4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/internet/68",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"internet",
+								"68"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Скоростное правило",
+			"item": [
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad31d678-a417-4119-b37f-0e264d0e5585",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/speed-rule/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"speed-rule",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новое скоростное правило",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f7503ff1-0ca7-4e9a-ae78-c3367ad79e53",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": 11,\r\n    \"internets\": [72]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/speed-rule/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"speed-rule",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить скоростное правило",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0aa56267-761f-4772-a116-249ef37c8500",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": 10,\r\n    \"internets\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/speed-rule/9/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"speed-rule",
+								"9",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить скоростное правило",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "447726df-db82-40bd-b362-6a199e45773a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/speed-rule/10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"speed-rule",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Тв",
+			"item": [
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22240552-de68-4db4-bb98-2690176da27f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/tv/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tv",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новое тв",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "122176aa-f177-4e08-bcfc-b994649691bd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Новое ТВ\",\r\n    \"subscription_id\": 11\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/tv/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tv",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить тв",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dbc3a888-23da-47ca-840b-0f093e55ceb7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Новое ТВ\",\r\n    \"subscription_id\": 12\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/tv/15/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tv",
+								"15",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить тв",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41d93d56-de23-422c-a380-223eaf005209",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/tv/15",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tv",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Аренда",
+			"item": [
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "300f5bae-8c8f-43db-93c9-d27445b9454c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/rental/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новая аренда",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fe4ca3f8-1474-46ec-a2a9-7746be44f07d",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Новая аренда\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/rental/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить аренду",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1413a50-bca1-4445-8887-9de38648eaa2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Изменить аренду\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/rental/8/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"8",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить аренду",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a9844ea7-7727-4480-9c49-89973f5c9741",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/rental/8",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rental",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Смотрешка настройки",
+			"item": [
+				{
+					"name": "Список настроек",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "db4674f7-b0d3-4181-9900-1fb5cac8fdaa",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/smotreshka-setting/index",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"smotreshka-setting",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новые настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "129c878a-5970-41e6-bf4b-9e62c57e0bf7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://soyuz-kom.test.lfstrm.tv/v2/accounts2\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/smotreshka-setting/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"smotreshka-setting",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b9a53040-2823-45c9-a602-17152c59ae1c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://soyuz-kom.test.lfstrm.tv/v2/accounts2\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/smotreshka-setting/3/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"smotreshka-setting",
+								"3",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d7c0d41d-e380-4f40-86c8-a9c1e047f75f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/smotreshka-setting/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"smotreshka-setting",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Микротик настройки",
+			"item": [
+				{
+					"name": "Список настроек",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ff2d0a2-0b3c-49dd-bf46-5b8e4f3139fd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/index",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новые настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "76ccf1eb-2527-42eb-b082-51b9ab72da84",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"host\": \"123\",\r\n    \"login\": \"test\",\r\n    \"password\": \"123\",\r\n    \"is_status\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f5b263cf-98a1-41c5-88ab-f8429aa3c9e2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"host\": \"123\",\r\n    \"login\": \"test\",\r\n    \"password\": \"123\",\r\n    \"is_status\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/2/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "10bb932a-e97f-42f4-8060-1cb7a267b966",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Пакет услуг",
+			"item": [
+				{
+					"name": "Пакет услуг",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "263047a3-c6f1-4d7b-af92-f2601ef13921",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/package/index",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"package",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новый пакет услуг",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e8a42b2d-4c67-46a0-9606-0be6a59c59f4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"internet\": 2,\r\n    \"tvs\": \"1,2,3\",\r\n    \"rents\": \"1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/package/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"package",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить пакет услуг",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f0e98ab-20c8-4e58-b76f-f1b155c4a5cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"internet\": 2,\r\n    \"tvs\": \"1,2,3\",\r\n    \"rents\": \"4\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/package/2/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"package",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить пакет услуг",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78b327a9-35a9-466e-913b-d221dde28e2e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/package/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"package",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Лог действий",
+			"item": [
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a29ef765-40cb-42b9-ad59-310418d97696",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/log-action/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"log-action",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новые настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6fd88e63-3c40-4c3a-932c-d684fcc2a1b3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"host\": \"123\",\r\n    \"login\": \"test\",\r\n    \"password\": \"123\",\r\n    \"is_status\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "deac69d4-8286-4700-8175-a5b467426a96",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"host\": \"123\",\r\n    \"login\": \"test\",\r\n    \"password\": \"123\",\r\n    \"is_status\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/2/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить настройки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f7c8ba1-e3ef-4b6d-a68d-6ba6b060b978",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/mikrotik-setting/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mikrotik-setting",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Пресет",
+			"item": [
+				{
+					"name": "Новый пресет",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9e14dab8-0423-45d2-95c5-dd0c26081625",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"/admin/internet\",\r\n    \"name\": \"test\",\r\n    \"settings\": \"{}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/preset/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"preset",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Показать пресеты по фильтру",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "886f30d4-0027-444d-ba7f-2d368fed6d73",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"host\": \"123\",\r\n    \"login\": \"test\",\r\n    \"password\": \"123\",\r\n    \"is_status\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/preset/url?url=/admin/internet",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"preset",
+								"url"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "/admin/internet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить пресет",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f1d675e-8bea-46c4-ad84-0229001742ef",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/preset/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"preset",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Задачи",
+			"item": [
+				{
+					"name": "Показать задачи",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a140e01-939b-4b10-836f-634084d159c8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/task/index?service_type=internet",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"index"
+							],
+							"query": [
+								{
+									"key": "service_type",
+									"value": "internet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Новая задача",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0cbb8b52-14d6-4b2c-ba79-55a70c1dbcc6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"price\": \"100\",\r\n    \"is_write_off_rent\": true,\r\n    \"is_discount\": true,\r\n    \"is_installments\": false,\r\n    \"price_installments\": null,\r\n    \"day_start\": null,\r\n    \"month_start\": null,\r\n    \"day_end\": null,\r\n    \"month_end\": null,\r\n    \"type_write_off\": \"onetime\",\r\n    \"day_in_month\": 1,\r\n    \"datetime\": \"2020-11-06T21:00:00.000Z\",\r\n    \"service_type\": \"internet\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/task/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить задачу",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "434c4bcd-9935-441e-b4dd-11d841a5a82b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/task/106",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить задачу",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20a72ec6-33c2-4a44-9b44-c78e8c574d01",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test 2\",\r\n    \"price\": \"100\",\r\n    \"is_write_off_rent\": true,\r\n    \"is_discount\": true,\r\n    \"is_installments\": false,\r\n    \"price_installments\": 0,\r\n    \"day_start\": null,\r\n    \"month_start\": null,\r\n    \"day_end\": null,\r\n    \"month_end\": null,\r\n    \"type_write_off\": \"onetime\",\r\n    \"day_in_month\": 1,\r\n    \"datetime\": \"2020-11-06T21:00:00.000Z\",\r\n    \"service_type\": \"internet\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/task/106/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"106",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Личный кабинет",
+			"item": [
+				{
+					"name": "Все события",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6635a90c-e0eb-4b01-8e4e-3c18e4fc0994",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/lk/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lk",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Взять обещанный платеж",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "310b661c-08c8-4faf-a545-1722b77fe324",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"price\": \"100\",\r\n    \"is_write_off_rent\": true,\r\n    \"is_discount\": true,\r\n    \"is_installments\": false,\r\n    \"price_installments\": null,\r\n    \"day_start\": null,\r\n    \"month_start\": null,\r\n    \"day_end\": null,\r\n    \"month_end\": null,\r\n    \"type_write_off\": \"onetime\",\r\n    \"day_in_month\": 1,\r\n    \"datetime\": \"2020-11-06T21:00:00.000Z\",\r\n    \"service_type\": \"internet\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/lk/1/promised-pay",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lk",
+								"1",
+								"promised-pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "История",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c53dd24c-cc04-496a-a365-dc29048a254c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/lk/1/history",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"lk",
+								"1",
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Банки",
+			"item": [
+				{
+					"name": "Яндекс",
+					"item": [
+						{
+							"name": "Платежи",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dad06df8-2d2d-4882-9f22-66eb263eefd6",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bank\": \"sberbank\"\r\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/bank/yandex/pay",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bank",
+										"yandex",
+										"pay"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Челябинвест",
+					"item": [
+						{
+							"name": "Платежи",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "90b72b8e-34ae-4688-ba73-670b3b287106",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bank\": \"sberbank\"\r\n}"
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/bank/chelinvest/pay",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"bank",
+										"chelinvest",
+										"pay"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Показать все логи банка",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "802b393f-ac53-43aa-a2fe-1d90bb9e229e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/bank/index",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4638045a-8baf-4fc1-9a4e-497a50036689",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/bank/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Платежи",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4260d78-2cf6-4aa8-8903-2ed8bfbd38ff",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Disposition",
+								"value": "form-data",
+								"type": "text"
+							},
+							{
+								"key": "name",
+								"value": "file",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bank",
+									"value": "sberbank",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/N:/Neti/MAU маркет/API-лента/Новый файл/goods.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/bank/payment",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сальдо реестр",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e11a683-1304-4ee6-835c-5d83a3dee4a2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bank\": \"sberbank\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/bank/saldo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"saldo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Уведомления",
+			"item": [
+				{
+					"name": "Рассылка",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isSms\": false,\r\n    \"isEmail\": true,\r\n    \"message\": \"123123\",\r\n    \"request\": {\r\n        \"discount\": [\r\n            null,\r\n            null\r\n        ],\r\n        \"is_archive\": false,\r\n        \"balance\": [\r\n            null,\r\n            null\r\n        ],\r\n        \"price_over_month\": [\r\n            null,\r\n            null\r\n        ],\r\n        \"internet\": [],\r\n        \"tvs\": [],\r\n        \"rents\": [],\r\n        \"universal_filters\": [\r\n            {\r\n                \"field\": \"id\",\r\n                \"expression\": \"=\",\r\n                \"value\": \"2939\"\r\n            }\r\n        ],\r\n        \"page\": null\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/notification/send",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Абоненты",
+			"item": [
+				{
+					"name": "Изменить",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6be92135-6b5c-4d80-abf7-63ee18d67d5a",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2939,\r\n    \"login\": \"michael74\",\r\n    \"password\": \"123\",\r\n    \"ip\": \"10.0.0.120\",\r\n    \"balance\": \"1.00\",\r\n    \"contract\": \"123123\",\r\n    \"is_promised_pay\": 0,\r\n    \"fio\": \"Барышников Станислав\",\r\n    \"city\": null,\r\n    \"street\": null,\r\n    \"house\": null,\r\n    \"building\": null,\r\n    \"apartment\": null,\r\n    \"password_smotreshka\": null,\r\n    \"phone\": \"88888888888\",\r\n    \"phone2\": \"\",\r\n    \"email\": \"michael74.ru@mail.ru\",\r\n    \"discount\": 0,\r\n    \"loyalty\": 0,\r\n    \"type_discount\": null,\r\n    \"note\": null,\r\n    \"internet_id\": 15,\r\n    \"tvs\": [\r\n        3,\r\n        4\r\n    ],\r\n    \"rents\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/client/2939",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client",
+								"2939"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "35a28441-8cfb-4e83-be9f-39f5aa612874",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/client/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удалить абонента",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84dffe5d-73c8-44f5-a63a-989a447f6996",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/client/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск по атрибутам",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3720c456-7265-4206-a188-4f70f0b1cef4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/client/attribute",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client",
+								"attribute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"test3\",\r\n    \"password\": \"123123\",\r\n    \"ip\": \"10.11.1.11\",\r\n    \"balance\": \"10\",\r\n    \"contract\": \"222223\",\r\n    \"fio\": \"test3\",\r\n    \"phone\": \"89507234572\",\r\n    \"phone2\": \"\",\r\n    \"email\": \"mmm@mm.ru\",\r\n    \"internet_id\": 16,\r\n    \"tvs\": [],\r\n    \"rents\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/client/store",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client",
+								"store"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
